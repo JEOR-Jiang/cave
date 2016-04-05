@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.security.InvalidParameterException;
 
 /**
+ * 用户controller
  * Created by Jeor on 2016/1/28.
  */
 //@Controller()
