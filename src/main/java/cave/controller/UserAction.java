@@ -32,13 +32,7 @@ public class UserAction {
         }
     }
 
-    public String one(){
-        return "abc";
-    }
-    @RequestMapping(value = "tt")
-    public String two(){
-        return "two";
-    }
+
 
     private void checkUser() {
         if (user == null) {

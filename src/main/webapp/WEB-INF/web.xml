@@ -4,21 +4,31 @@
          xmlns="http://java.sun.com/xml/ns/j2ee"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd">
+    <!--项目配置-->
     <display-name>cave_1.0.0</display-name>
     <description>Frame spring3.2.9.RELEASE,SpringMVC,Hibernate3.3.2</description>
-    <!-- spring的应用上下文 -->
+    <!-- 配置session有效30分钟 -->
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <welcome-file-list>
+        <welcome-file>index.jsp</welcome-file>
+    </welcome-file-list>
+
+        <!--Spring配置-->
+            <!-- spring的应用上下文 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath:applicationContext.xml</param-value>
     </context-param>
 
-    <!-- Servlet Context Listener ======================================= -->
-    <!-- spring的监听器，以便在启动时就自动加载spring的配置 -->
+            <!-- Servlet Context Listener ======================================= -->
+            <!-- spring的监听器，以便在启动时就自动加载spring的配置 -->
     <listener><listener-class>org.springframework.web.context.ContextLoaderListener</listener-class></listener>
-    <!-- 加入Request监听器，以便获取Response对象 -->
+            <!-- 加入Request监听器，以便获取Response对象 -->
     <listener><listener-class>org.springframework.web.context.request.RequestContextListener</listener-class></listener>
 
-    <!-- springMVC -->
+            <!-- springMVC -->
     <servlet>
         <servlet-name>springMVC</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -34,12 +44,7 @@
         <servlet-name>springMVC</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    <!-- 配置session有效30分钟 -->
-    <session-config>
-        <session-timeout>30</session-timeout>
-    </session-config>
-    <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
-    </welcome-file-list>
+
+
 </web-app>
         
