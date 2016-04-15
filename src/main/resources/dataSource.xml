@@ -55,7 +55,7 @@
         </tx:attributes>
     </tx:advice>
     <aop:config><!-- 对事务进行切面拦截 -->
-        <aop:pointcut id="interceptorPointCuts" expression="execution(* cave.server.*.impl..*.*(..)) " />
+        <aop:pointcut id="interceptorPointCuts" expression="execution(* cave.server.impl..*.*(..)) " />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
     </aop:config>
 

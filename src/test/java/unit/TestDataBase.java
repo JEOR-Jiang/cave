@@ -28,14 +28,16 @@ public class TestDataBase {
 
     @Test
     public void testJdbc()throws Exception{
-
         System.out.println("测试数据库连接");
-
         List<User> list= hibernateTemplate.find("FROM User");
-
         System.out.println(list.size());
         if(list.size()>0){
             System.out.println(list.get(0).getName());
+        }
+        List<PmsMenu> list2= hibernateTemplate.find("FROM "+PmsMenu.class.getName());
+        System.out.println(list2.size());
+        if(list2.size()>0){
+            System.out.println(list2.get(0).getName());
         }
     }
 }

@@ -18,7 +18,7 @@ public class UserServerImpl implements UserServer {
 
     public boolean login(User user)throws Exception{
         User dbUser= userDao.getUserByAccount(user);
-        if(user.getPassword().equals(dbUser.getPassword())){
+        if(dbUser!=null&&user.getPassword().equals(dbUser.getPassword())){
             return true;
         }else {
             return false;
