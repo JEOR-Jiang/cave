@@ -3,6 +3,7 @@ package cave.entity;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Jeor on 2016/4/14.
@@ -18,6 +19,10 @@ public class Permission implements Serializable {
     private Integer relationId;
     private String name;
     private String description;
+
+    private List<Role> roles;
+    private List<User> users;
+    private List<UserGroup> userGroups;
 
     public Permission() {}
 
@@ -81,5 +86,29 @@ public class Permission implements Serializable {
     }
     public void setName(String name) {
         this.name = name;
+    }
+    @Transient
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+    @Transient
+    public List<UserGroup> getUserGroups() {
+        return userGroups;
+    }
+
+    public void setUserGroups(List<UserGroup> userGroups) {
+        this.userGroups = userGroups;
+    }
+    @Transient
+    public List<User> getUsers() {
+        return users;
+    }
+
+    public void setUsers(List<User> users) {
+        this.users = users;
     }
 }

@@ -1,6 +1,7 @@
 package cave.entity;
 
 import javax.persistence.*;
+import java.util.List;
 
 /**
  * Created by Jeor on 2016/1/28.
@@ -15,6 +16,10 @@ public class User implements java.io.Serializable{
     private String qqNumber;
     private String name;
     private String password;
+
+    private List<UserGroup> userGroups ;
+    private List<Role> roles ;
+    private List<Permission> permissions;
 
     public User() {
     }
@@ -81,5 +86,29 @@ public class User implements java.io.Serializable{
 
     public void setQqNumber(String qqNumber) {
         this.qqNumber = qqNumber;
+    }
+    @Transient
+    public List<Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(List<Permission> permissions) {
+        this.permissions = permissions;
+    }
+    @Transient
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<Role> roles) {
+        this.roles = roles;
+    }
+    @Transient
+    public List<UserGroup> getUserGroups() {
+        return userGroups;
+    }
+
+    public void setUserGroups(List<UserGroup> userGroups) {
+        this.userGroups = userGroups;
     }
 }
