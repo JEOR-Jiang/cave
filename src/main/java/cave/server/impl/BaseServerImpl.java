@@ -1,6 +1,7 @@
-package cave.server;
+package cave.server.impl;
 
 import cave.dao.BaseDao;
+import cave.server.BaseServer;
 import cave.utils.Page;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Objects;
  * Created by Jeor on 2016/4/18.
  */
 @Service("baseServer")
-public class BaseServerImpl<T> implements BaseServer<T>{
+public class BaseServerImpl<T> implements BaseServer<T> {
 
     @Resource
     private BaseDao baseDao;
@@ -44,5 +45,11 @@ public class BaseServerImpl<T> implements BaseServer<T>{
             }
         }
 
+    }
+    public Page<T> findByObjectPage(Class<T> tClass,Page<T> page){
+        String sumRecordSql="select count(*) from "+tClass.getName();
+        String recordSql="from "+tClass.getName();
+        this.baseDao.getByObjectPage(page,sumRecordSql,recordSql);
+        return page;
     }
 }

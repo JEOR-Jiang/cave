@@ -15,8 +15,8 @@ import java.util.List;
  */
 @Repository("userDao")
 public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
-    @Resource
-    private DriverManagerDataSource dataSource;
+//    @Resource
+//    private DriverManagerDataSource dataSource;
 
     public User getUserByAccount(User user){
         List<User> users=super.createSqlQuery("select * from [user] where name=?",user.getName()).addEntity(User.class).list();

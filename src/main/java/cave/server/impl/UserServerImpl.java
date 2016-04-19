@@ -2,7 +2,6 @@ package cave.server.impl;
 
 import cave.dao.UserDao;
 import cave.entity.User;
-import cave.server.BaseServerImpl;
 import cave.server.UserServer;
 import org.springframework.stereotype.Service;
 

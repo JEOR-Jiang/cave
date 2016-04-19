@@ -12,4 +12,5 @@ public interface BaseServer<T> {
     public void create(T t) throws Exception;
     public void remove(List<T> ts) throws Exception;
     public void revise(List<T> ts)throws Exception;
+    public Page<T> findByObjectPage(Class<T> tClass ,Page<T> page);
 }
