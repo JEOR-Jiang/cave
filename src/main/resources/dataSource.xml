@@ -13,7 +13,6 @@
        default-lazy-init="true">
 
     <bean id="dataSource"  class="org.springframework.jdbc.datasource.DriverManagerDataSource">
-        <!--<property name="driverClassName" value="com.microsoft.jdbc.sqlserver.SQLServerDriver"></property>-->
         <property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=cave"></property>
         <property name="username" value="sa"></property>
         <property name="password" value="sa"></property>
@@ -49,18 +48,19 @@
     <tx:advice id="txAdvice" transaction-manager="txManager">
         <tx:attributes>
             <tx:method name="add*" propagation="REQUIRED"/>
+            <tx:method name="append*" propagation="REQUIRED"/>
             <tx:method name="save*" propagation="REQUIRED"/>
             <tx:method name="del*" propagation="REQUIRED"/>
             <tx:method name="remove*" propagation="REQUIRED"/>
+            <tx:method name="truncate*" propagation="REQUIRED"/>
             <tx:method name="update*" propagation="REQUIRED"/>
             <tx:method name="revise*" propagation="REQUIRED"/>
             <tx:method name="test*" propagation="REQUIRED"/>
-
             <tx:method name="*" read-only="false"/>
         </tx:attributes>
     </tx:advice>
     <aop:config><!-- 对事务进行切面拦截 -->
-        <aop:pointcut id="interceptorPointCuts" expression="execution(* cave.server.impl.*.*(..)) " />
+        <aop:pointcut id="interceptorPointCuts" expression="execution(* cave.server.impl.*.*(..))||execution(* unit.*.*(..)) " />
         <aop:advisor advice-ref="txAdvice" pointcut-ref="interceptorPointCuts" />
     </aop:config>
 

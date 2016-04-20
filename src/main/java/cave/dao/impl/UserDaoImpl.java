@@ -1,13 +1,12 @@
 package cave.dao.impl;
 
-import cave.dao.BaseDaoImpl;
 import cave.dao.UserDao;
+import cave.entity.Permission;
+import cave.entity.Role;
 import cave.entity.User;
-import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import cave.entity.UserGroup;
 import org.springframework.stereotype.Repository;
-import org.apache.commons.dbcp.*;
 
-import javax.annotation.Resource;
 import java.util.List;
 
 /**
@@ -26,4 +25,15 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         return null;
     }
 
+    public List<User> findByUsergroup(UserGroup userGroup) throws Exception {
+        return null;
+    }
+
+    public List<User> findByRole(Role role) throws Exception {
+        return null;
+    }
+
+    public List<User> findByPermission(Permission permission) throws Exception {
+        return null;
+    }
 }

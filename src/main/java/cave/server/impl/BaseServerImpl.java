@@ -3,18 +3,16 @@ package cave.server.impl;
 import cave.dao.BaseDao;
 import cave.server.BaseServer;
 import cave.utils.Page;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.List;
-import java.util.Objects;
 
 /**
  * Created by Jeor on 2016/4/18.
  */
 @Service("baseServer")
-public class BaseServerImpl<T> implements BaseServer<T> {
+public abstract class BaseServerImpl<T> implements BaseServer<T> {
 
     @Resource
     private BaseDao baseDao;
@@ -28,6 +26,10 @@ public class BaseServerImpl<T> implements BaseServer<T> {
     }
     public void create(T t) throws Exception {
         this.baseDao.save(t);
+    }
+
+    public void saveOrUpdate(T t)throws Exception{
+        this.baseDao.saveOrUpdate(t);
     }
 
     public void revise(List<T> ts) throws Exception {

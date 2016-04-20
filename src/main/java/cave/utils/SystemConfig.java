@@ -24,7 +24,6 @@ public class SystemConfig implements InitializingBean {
 
 	public static void init(){
 		hostUrl = SystemConfig.getProperty("host.url");
-
 		jsCssVersion = SystemConfig.getProperty("js.css.version");
 	}
 
@@ -32,7 +31,7 @@ public class SystemConfig implements InitializingBean {
 	private PropertiesFactoryBean propertiesFactoryBean ;
 	private static Map<String,String> properties = new HashMap<String,String>();
 
-	@Override
+
 	public void afterPropertiesSet() throws Exception {
 		Properties props = propertiesFactoryBean.getObject() ;
 		for(String key:props.stringPropertyNames()){

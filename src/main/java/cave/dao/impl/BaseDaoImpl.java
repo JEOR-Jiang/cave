@@ -1,5 +1,6 @@
-package cave.dao;
+package cave.dao.impl;
 
+import cave.dao.BaseDao;
 import cave.utils.Page;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;

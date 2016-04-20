@@ -29,4 +29,12 @@ public class UserServerImpl extends BaseServerImpl<User> implements UserServer {
     public String register(User user) throws Exception {
         return null;
     }
+
+    public void findDetail(Object entity) throws Exception {
+
+    }
+
+    public void reviseRelation(Integer id, Integer[]... relationIds) throws Exception {
+
+    }
 }

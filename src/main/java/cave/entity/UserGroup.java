@@ -10,16 +10,16 @@ import java.util.List;
 @Entity
 @Table(name="userGroup")
 public class UserGroup implements java.io.Serializable{
-    private int id;
+    private Integer id;
     private String name;
-    private int parentId;
+    private Integer parentId;
 
     private List<User> users;
     private List<Role> roles;
     private List<Permission> permissions;
 
     public UserGroup() {   }
-    public UserGroup(int parentId, String name, int id) {
+    public UserGroup(Integer parentId, String name, Integer id) {
         this.parentId = parentId;
         this.name = name;
         this.id = id;
@@ -27,11 +27,11 @@ public class UserGroup implements java.io.Serializable{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @Column(name = "name")
@@ -42,12 +42,12 @@ public class UserGroup implements java.io.Serializable{
     public void setName(String name) {
         this.name = name;
     }
-    @Column(name = "perentId")
-    public int getParentId() {
+    @Column(name = "parentId")
+    public Integer getParentId() {
         return parentId;
     }
 
-    public void setParentId(int parentId) {
+    public void setParentId(Integer parentId) {
         this.parentId = parentId;
     }
 
