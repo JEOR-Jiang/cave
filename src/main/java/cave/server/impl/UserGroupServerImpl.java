@@ -7,6 +7,7 @@ import cave.server.UserGroupServer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 
 /**
@@ -25,6 +26,7 @@ public class UserGroupServerImpl extends BaseServerImpl<UserGroup> implements Us
         UserGroup userGroup =(UserGroup) entity;
         User user =new User();
         user.setId(3);
-        this.userGroupDao.findByUser(user);
+        List<UserGroup> groupList= this.userGroupDao.findByUser(user);
+        System.out.println("entity = [" + groupList + "]");
     }
 }
