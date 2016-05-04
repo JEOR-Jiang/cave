@@ -17,7 +17,8 @@ import java.util.List;
 public class RoleDaoImpl extends BaseDaoImpl<Role> implements RoleDao {
 
     public List<Role> findByUsergroup(UserGroup userGroup) throws Exception {
-        return null;
+        String sql="select r2.* from userGroupRole_ref r inner join [role] r2 on r2.id=r.roleId where groupId=?";
+        return this.getListBySQL(sql,userGroup.getId());
     }
 
     public List<Role> findByUser(User user) throws Exception {

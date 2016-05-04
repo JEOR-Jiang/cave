@@ -5,6 +5,7 @@ import cave.dao.UserGroupDao;
 import cave.entity.Role;
 import cave.entity.User;
 import cave.entity.UserGroup;
+import cave.utils.TransformData;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +22,31 @@ public class UserGroupDaoImpl extends BaseDaoImpl<UserGroup> implements UserGrou
         return userGroups;
     }
 
+
+    public void reviseRelationUser(Integer userGroupId, Integer[] userIds) throws Exception {
+        String sql="insert into userGroup_ref(groupId,userId) values(?,?)";
+        for(Integer userId:userIds){
+            this.updateBySql(sql,userGroupId,userId);
+        }
+    }
+
+    public void removeRelationUser(Integer userGroupId) throws Exception {
+        String sql="delete userGroup_ref where groupId=?";
+        this.updateBySql(sql, userGroupId);
+    }
+
     public List<UserGroup> findByRole(Role role) throws Exception {
         return null;
+    }
+    public void reviseRelationRole(Integer userGroupId, Integer[] roleIds) throws Exception {
+        String sql="insert into userGroupRole_ref(groupId,roleId) values(?,?)";
+        for(Integer role:roleIds){
+            this.updateBySql(sql,userGroupId,role);
+        }
+    }
+
+    public void removeRelationRole(Integer userGroupId) throws Exception {
+        String sql="delete userGroupRole_ref where groupId=?";
+        this.updateBySql(sql, userGroupId);
     }
 }

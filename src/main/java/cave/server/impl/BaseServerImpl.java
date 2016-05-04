@@ -54,4 +54,6 @@ public abstract class BaseServerImpl<T> implements BaseServer<T> {
         this.baseDao.getByObjectPage(page,sumRecordSql,recordSql);
         return page;
     }
+    public void findDetail(Object entity)throws Exception{}
+    public void reviseRelation(Integer id,Integer[]... relationIds)throws Exception{}
 }

@@ -25,4 +25,5 @@ public interface UserDao extends BaseDao<User>{
      * 获取权限所属的用户
      */
     public List<User> findByPermission(Permission permission)throws Exception;
+
 }

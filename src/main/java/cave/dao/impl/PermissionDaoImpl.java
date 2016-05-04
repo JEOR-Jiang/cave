@@ -16,7 +16,9 @@ import java.util.List;
 public class PermissionDaoImpl extends BaseDaoImpl<Permission> implements PermissionDao {
 
     public List<Permission> findByUsergroup(UserGroup userGroup) throws Exception {
-        return null;
+        String sql="select p.* from rolePermission_ref rp inner join permission p on p.id=rp.permissionId " +
+                " inner join userGroupRole_ref ugr on rp.roleId=ugr.roleId where ugr.groupId=?";
+        return this.getListBySQL(sql,userGroup.getId());
     }
 
     public List<Permission> findByUser(User user) throws Exception {
