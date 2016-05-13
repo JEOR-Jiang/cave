@@ -58,7 +58,6 @@ public class UserGroupServerImpl extends BaseServerImpl<UserGroup> implements Us
         this.userGroupDao.removeRelationRole(id);
         this.userGroupDao.reviseRelationUser(id,userIds);
         this.userGroupDao.reviseRelationRole(id, roleIds);
-
     }
 
 }

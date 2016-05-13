@@ -10,9 +10,9 @@ import java.util.List;
 @Entity
 @Table(name="role")
 public class Role implements java.io.Serializable{
-    private int id;
+    private Integer id;
     private String name;
-    private int status;
+    private Integer status;
 
     private List<UserGroup> userGroups;
     private List<User> users;
@@ -24,7 +24,7 @@ public class Role implements java.io.Serializable{
     private List<PmsFunctionOperation> pmsFunctionOperations;
 
     public Role() { }
-    public Role(int id, String name, int status) {
+    public Role(Integer id, String name, Integer status) {
         this.id = id;
         this.name = name;
         this.status = status;
@@ -32,10 +32,10 @@ public class Role implements java.io.Serializable{
     @Id
     @Column(name="id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public int getId() {
+    public Integer getId() {
         return id;
     }
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
     @Column(name="name")
@@ -46,10 +46,10 @@ public class Role implements java.io.Serializable{
         this.name = name;
     }
     @Column(name="status")
-    public int getStatus() {
+    public Integer getStatus() {
         return status;
     }
-    public void setStatus(int status) {
+    public void setStatus(Integer status) {
         this.status = status;
     }
 

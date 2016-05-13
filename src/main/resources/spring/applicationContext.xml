@@ -19,6 +19,17 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
 
 
+    <bean id="propertySetting" class="cave.utils.PropertySetting" lazy-init="false" />
+    <bean id="propertiesFactoryBean"  class="org.springframework.beans.factory.config.PropertiesFactoryBean">
+        <property name="locations">
+            <list>
+                <value>classpath:property/${spring.profiles.active}.properties</value>
+                <value>classpath:property/messages.properties</value>
+            </list>
+        </property>
+        <property name="fileEncoding" value="UTF-8"/>
+    </bean>
+
     <import resource="classpath:dataSource.xml"></import>
     <!--已经在web.xml里面配置勒路径<import resource="classpath:springMVC.xml"></import>-->
 </beans>

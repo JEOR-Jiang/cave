@@ -14,6 +14,14 @@ public interface UserDao extends BaseDao<User>{
     public User getUserByAccount(User user);
 
     /**
+     * 检查qq号码是否存在
+     * @param operation 1-qq,2-email,3-phone
+     * @param param
+     * @return 存在返回true
+     */
+    public User findByParam(Integer operation,String param);
+
+    /**
      * 获取用户组的用户
      */
     public List<User> findByUsergroup(UserGroup userGroup)throws Exception;

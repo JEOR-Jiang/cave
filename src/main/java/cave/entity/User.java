@@ -10,7 +10,7 @@ import java.util.List;
 @Entity
 @Table(name="[user]")
 public class User implements java.io.Serializable{
-    private int id;
+    private Integer id;
     private String email;
     private String phone;
     private String qqNumber;
@@ -44,11 +44,11 @@ public class User implements java.io.Serializable{
     @Id
     @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Column(name="id")
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

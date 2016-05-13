@@ -1,8 +1,5 @@
 package unit;
 
-import cave.server.UserServer;
-import cave.utils.Page;
-import org.apache.commons.dbcp.BasicDataSource;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.orm.hibernate3.HibernateTemplate;
@@ -11,9 +8,6 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import javax.annotation.Resource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.Statement;
 import java.util.List;
 import cave.entity.*;
 
@@ -23,7 +17,7 @@ import cave.entity.*;
 
 @Component
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = {"classpath:applicationContext.xml"})
+@ContextConfiguration(locations = {"classpath:spring/applicationContext.xml"})
 public class TestDataBase {
     @Resource
     private HibernateTemplate hibernateTemplate;

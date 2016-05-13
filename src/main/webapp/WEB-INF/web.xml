@@ -6,6 +6,7 @@
     <!--项目配置-->
     <display-name>cave_1.0.0</display-name>
     <description>Frame spring3.2.9.RELEASE,SpringMVC,Hibernate3.3.2</description>
+
     <!-- 配置session有效30分钟 -->
     <session-config>
         <session-timeout>30</session-timeout>
@@ -14,12 +15,15 @@
         <welcome-file>cave/user/login.jsp</welcome-file>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>
-
+    <context-param>
+        <param-name>spring.profiles.active</param-name>
+        <param-value>${profiles.active}</param-value>
+    </context-param>
     <!--Spring配置-->
     <!-- spring的应用上下文 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:applicationContext.xml</param-value>
+        <param-value>classpath:spring/applicationContext.xml</param-value>
     </context-param>
 
     <!-- Servlet Context Listener ======================================= -->
@@ -40,7 +44,7 @@
         <!-- 可以自定义servlet.xml配置文件的位置和名称，默认为WEB-INF目录下，名称为[<servlet-name>]-servlet.xml，如spring-servlet.xml -->
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:springMVC.xml</param-value>
+            <param-value>classpath:spring/springMVC.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
