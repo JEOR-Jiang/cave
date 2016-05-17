@@ -32,7 +32,7 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
             default:
                 throw new InvalidParameterException(PromptMessages.getMsg("user.findByParamInvailOperation",operation));
         }
-        Object object=this.getObjectBySQL(sql.toString(),param);
+        Object object=this.getObjectBySQL(sql.toString(), param);
         if(object!=null){
             return (User)object;
         }else{
@@ -40,12 +40,16 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
         }
     }
 
-    public User getUserByAccount(User user){
-        List<User> users=super.createSqlQuery("select * from [user] where name=?",user.getName()).addEntity(User.class).list();
-        if(users.size()>0){
-            return users.get(0);
+    public void removeRelationUsergroup(Integer userId) throws Exception {
+        String sql="delete userGroup_ref where userId=?";
+        this.updateBySql(sql, userId);
+    }
+
+    public void reviseRelationUsergroup(Integer userId, Integer[] userGroupIds) throws Exception {
+        String sql="insert into userGroup_ref(groupId,userId) values(?,?)";
+        for(Integer userGroupId:userGroupIds){
+            this.updateBySql(sql,userGroupId,userId);
         }
-        return null;
     }
 
     public List<User> findByUsergroup(UserGroup userGroup) throws Exception {
@@ -54,10 +58,25 @@ public class UserDaoImpl extends BaseDaoImpl<User> implements UserDao {
     }
 
     public List<User> findByRole(Role role) throws Exception {
-        return null;
+        String sql="select * from [user] u inner join userRole_ref ur on u.id=ur.userId where ur.roleId=?;";
+        return this.getListBySQL(sql,role.getId());
     }
 
-    public List<User> findByPermission(Permission permission) throws Exception {
-        return null;
+    public void removeRelationRole(Integer userId) throws Exception {
+        String sql="delete userRole_ref where userId=?";
+        this.updateBySql(sql, userId);
     }
+
+    public void reviseRelationRole(Integer userId, Integer[] roleIds) throws Exception {
+        String sql="insert into userRole_ref(userId,roleId) values(?,?)";
+        for(Integer role:roleIds){
+            this.updateBySql(sql,userId,role);
+        }
+    }
+    public List<User> findByPermission(Permission permission) throws Exception {
+        String sql="select u.* from [user] u inner join userRole_ref ur on ur.userId=u.id" +
+                " inner join rolePermission_ref rp on rp.roleId=ur.roleId where rp.permissionId=?;";
+        return this.getListBySQL(sql,permission.getId());
+    }
+
 }

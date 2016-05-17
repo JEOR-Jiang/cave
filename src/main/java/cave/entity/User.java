@@ -20,6 +20,8 @@ public class User implements java.io.Serializable{
     private List<UserGroup> userGroups ;
     private List<Role> roles ;
     private List<Permission> permissions;
+    private List<Role> groupRoles ;
+    private List<Permission> groupPermissions;
 
     public User() {
     }
@@ -110,5 +112,21 @@ public class User implements java.io.Serializable{
 
     public void setUserGroups(List<UserGroup> userGroups) {
         this.userGroups = userGroups;
+    }
+    @Transient
+    public List<Role> getGroupRoles() {
+        return groupRoles;
+    }
+
+    public void setGroupRoles(List<Role> groupRoles) {
+        this.groupRoles = groupRoles;
+    }
+    @Transient
+    public List<Permission> getGroupPermissions() {
+        return groupPermissions;
+    }
+
+    public void setGroupPermissions(List<Permission> groupPermissions) {
+        this.groupPermissions = groupPermissions;
     }
 }

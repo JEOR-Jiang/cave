@@ -1,5 +1,6 @@
 package cave.dao;
 
+import cave.entity.Permission;
 import cave.entity.Role;
 import cave.entity.User;
 import cave.entity.UserGroup;
@@ -19,7 +20,7 @@ public interface UserGroupDao extends BaseDao<UserGroup> {
      * 修改用户关系
      */
     public void reviseRelationUser(Integer userGroupId ,Integer[] userIds)throws Exception;
-    /**
+        /**
      * 删除用户关系
      */
     public void removeRelationUser(Integer userGroupId)throws Exception;
@@ -38,4 +39,9 @@ public interface UserGroupDao extends BaseDao<UserGroup> {
      */
     public void removeRelationRole(Integer userGroupId )throws Exception;
 
+    //---------------------------------------------------------权限关联---------------------------------------------------------
+    /**
+     * 获取拥有权限的用户组
+     */
+    public List<UserGroup> findByPermission(Permission permission)throws Exception;
 }

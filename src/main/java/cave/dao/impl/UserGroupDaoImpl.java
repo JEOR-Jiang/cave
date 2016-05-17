@@ -2,6 +2,7 @@ package cave.dao.impl;
 
 import cave.dao.UserDao;
 import cave.dao.UserGroupDao;
+import cave.entity.Permission;
 import cave.entity.Role;
 import cave.entity.User;
 import cave.entity.UserGroup;
@@ -36,7 +37,8 @@ public class UserGroupDaoImpl extends BaseDaoImpl<UserGroup> implements UserGrou
     }
 
     public List<UserGroup> findByRole(Role role) throws Exception {
-        return null;
+        String sql="select ug.* from userGroup ug inner join userGroupRole_ref ugr on ug.id=ugr.groupId where ugr.roleId=?;";
+        return this.getListBySQL(sql,role.getId());
     }
     public void reviseRelationRole(Integer userGroupId, Integer[] roleIds) throws Exception {
         String sql="insert into userGroupRole_ref(groupId,roleId) values(?,?)";
@@ -48,5 +50,11 @@ public class UserGroupDaoImpl extends BaseDaoImpl<UserGroup> implements UserGrou
     public void removeRelationRole(Integer userGroupId) throws Exception {
         String sql="delete userGroupRole_ref where groupId=?";
         this.updateBySql(sql, userGroupId);
+    }
+    public List<UserGroup> findByPermission(Permission permission)throws Exception{
+        String sql="select ug.* from userGroup ug inner join userGroupRole_ref ugr on ug.id=ugr.groupId" +
+                " inner join rolePermission_ref rp on rp.roleId=ugr.roleId where rp.permissionId=?;";
+        List<UserGroup> userGroups=this.getListBySQL(sql,permission.getId());
+        return userGroups;
     }
 }

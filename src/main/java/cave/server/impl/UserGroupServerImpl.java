@@ -4,19 +4,17 @@ import cave.dao.PermissionDao;
 import cave.dao.RoleDao;
 import cave.dao.UserDao;
 import cave.dao.UserGroupDao;
-import cave.entity.User;
 import cave.entity.UserGroup;
 import cave.server.UserGroupServer;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
-import java.util.List;
 
 
 /**
  * Created by Jeor on 2016/4/19.
  */
-@Service
+@Service("userGroupServer")
 public class UserGroupServerImpl extends BaseServerImpl<UserGroup> implements UserGroupServer {
 
     @Resource
@@ -54,10 +52,14 @@ public class UserGroupServerImpl extends BaseServerImpl<UserGroup> implements Us
     public void reviseRelation(Integer id, Integer[]... relationIds) throws Exception {
         Integer[] userIds=relationIds[0];
         Integer[] roleIds=relationIds[1];
-        this.userGroupDao.removeRelationUser(id);
-        this.userGroupDao.removeRelationRole(id);
-        this.userGroupDao.reviseRelationUser(id,userIds);
-        this.userGroupDao.reviseRelationRole(id, roleIds);
+        if(userIds.length>0){
+            this.userGroupDao.removeRelationUser(id);
+            this.userGroupDao.reviseRelationUser(id,userIds);
+        }
+        if(roleIds.length>0){
+            this.userGroupDao.removeRelationRole(id);
+            this.userGroupDao.reviseRelationRole(id, roleIds);
+        }
     }
 
 }

@@ -9,26 +9,28 @@ import java.util.UUID;
 /**
  * Created by Jeor on 2016/5/6.
  * 错误信息管理
- */
-public final class PromptMessages {
-    private static Map<String,String> PROMPt_MESSAGES=new HashMap<String, String>();
+     */
+    public final class PromptMessages {
+        private static Map<String,String> PROMPt_MESSAGES=new HashMap<String, String>();
 
-    public void init(){
-        //用户
-        PROMPt_MESSAGES.put("user.failedLogin", PropertySetting.getProperties().get("messages.user.failedLogin"));
-        PROMPt_MESSAGES.put("user.findByParamInvailOperation",PropertySetting.getProperties().get("messages.user.findByParamInvailOperation"));
-        PROMPt_MESSAGES.put("user.registerEmptyAcount", PropertySetting.getProperties().get("messages.user.registerEmptyAcount"));
-        PROMPt_MESSAGES.put("user.registerEmptyPassword", PropertySetting.getProperties().get("messages.user.registerEmptyPassword"));
-        PROMPt_MESSAGES.put("user.registerExistQQ", PropertySetting.getProperties().get("messages.user.registerExistQQ"));
-        PROMPt_MESSAGES.put("user.registerExistEmail", PropertySetting.getProperties().get("messages.user.registerExistEmail"));
-        PROMPt_MESSAGES.put("user.registerExistPhone", PropertySetting.getProperties().get("messages.user.registerExistPhone"));
-        PROMPt_MESSAGES.put("user.nullId", PropertySetting.getProperties().get("messages.user.nullId"));
+        public void init(){
+            //用户
+            PROMPt_MESSAGES.put("user.failedLogin", PropertySetting.getProperties().get("messages.user.failedLogin"));
+            PROMPt_MESSAGES.put("user.findByParamInvailOperation",PropertySetting.getProperties().get("messages.user.findByParamInvailOperation"));
+            PROMPt_MESSAGES.put("user.registerEmptyAcount", PropertySetting.getProperties().get("messages.user.registerEmptyAcount"));
+            PROMPt_MESSAGES.put("user.registerEmptyPassword", PropertySetting.getProperties().get("messages.user.registerEmptyPassword"));
+            PROMPt_MESSAGES.put("user.registerExistAccount", PropertySetting.getProperties().get("messages.user.registerExistAccount"));
+            PROMPt_MESSAGES.put("user.registerExistQQ", PropertySetting.getProperties().get("messages.user.registerExistQQ"));
+            PROMPt_MESSAGES.put("user.registerExistEmail", PropertySetting.getProperties().get("messages.user.registerExistEmail"));
+            PROMPt_MESSAGES.put("user.registerExistPhone", PropertySetting.getProperties().get("messages.user.registerExistPhone"));
+            PROMPt_MESSAGES.put("user.nullId", PropertySetting.getProperties().get("messages.user.nullId"));
+            PROMPt_MESSAGES.put("user.rolefindByUserInvailOperation", PropertySetting.getProperties().get("messages.user.findByUserInvailOperation"));
 
-    }
+        }
 
-    /**
-     * 生成错误信息
-     * @param errorCode 错误信息码
+        /**
+         * 生成错误信息
+         * @param errorCode 错误信息码
      * @param params    错误信息填充参数
      * @return
      */
