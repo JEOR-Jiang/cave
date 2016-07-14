@@ -2,14 +2,17 @@ package cave.controller;
 
 import cave.entity.User;
 import cave.server.UserServer;
+import cave.utils.PromptMessages;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.swing.*;
 import java.security.InvalidParameterException;
 
 /**
@@ -22,6 +25,8 @@ import java.security.InvalidParameterException;
 @RequestMapping("user")
 public class UserAction {
     private User user;
+    private String identityCode;//验证码
+    @Resource
     private UserServer userServer;
 
     @RequestMapping("login")
@@ -36,6 +41,7 @@ public class UserAction {
                 modelAndView.setViewName("cave/index");
             } else {
                 modelAndView.setViewName("cave/user/login");
+                modelAndView.addObject("", PromptMessages.getMsg("user.failedLogin", name));
             }
         }catch(Exception e){
             modelAndView.addObject("message",e.getMessage());
@@ -44,11 +50,21 @@ public class UserAction {
         return modelAndView;
     }
 
+    /**
+     * 注册
+     *  逻辑：1.账号密码不能为空，2.账号有效判断；
+     * @param model
+     * @return
+     */
+    @RequestMapping
+    public ModelAndView register(Model model,@RequestParam(value="account")String account,@RequestParam(value="password")String password){
+
+    }
 
 
     private void checkUser() {
         if (user == null) {
-            throw new InvalidParameterException("user null.check the paramters");
+            throw new InvalidParameterException(PromptMessages.getMsg("user.nullId"));
         }
     }
 

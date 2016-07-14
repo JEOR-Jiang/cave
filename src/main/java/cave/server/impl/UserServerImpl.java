@@ -47,6 +47,7 @@ public class UserServerImpl extends BaseServerImpl<User> implements UserServer {
         }
         if(dbUser!=null&&user.getPassword().equals(dbUser.getPassword())){
             this.findDetail(dbUser);
+            user=dbUser;
             return true;
         }else {
             return false;
