@@ -16,6 +16,6 @@
     <!--动态部分-->
     <sitemesh:write property='body'/>
   </div>
-<h4>food</h4>
+  <h4>food</h4>
 </body>
 </html>

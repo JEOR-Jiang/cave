@@ -2,7 +2,9 @@ package cave.controller;
 
 import cave.entity.User;
 import cave.server.UserServer;
+import cave.utils.ParamtersUtil;
 import cave.utils.PromptMessages;
+import cave.utils.ResultJSON;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -14,6 +16,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.swing.*;
 import java.security.InvalidParameterException;
+import java.util.regex.Pattern;
 
 /**
  * 用户controller
@@ -23,7 +26,7 @@ import java.security.InvalidParameterException;
 //@RequestMapping(value = "user")
 @Controller
 @RequestMapping("user")
-public class UserAction {
+public class UserAction extends BaseAction{
     private User user;
     private String identityCode;//验证码
     @Resource
@@ -57,10 +60,25 @@ public class UserAction {
      * @return
      */
     @RequestMapping
-    public ModelAndView register(Model model,@RequestParam(value="account")String account,@RequestParam(value="password")String password){
-
+     public void register(Model model,@RequestParam(value="password")String password,@RequestParam(value="phone")String phone,@RequestParam(value="email")String email,@RequestParam(value="qq")String qq,HttpServletRequest request,HttpServletResponse response)throws Exception{
+        ResultJSON result=new ResultJSON();
+        try{
+            checkUser();
+            user.setPassword(password);
+            if(!ParamtersUtil.isNull(phone)){
+                user.setPhone(phone);
+            }else if(!ParamtersUtil.isNull(email)){
+                user.setEmail(email);
+            }else if(!ParamtersUtil.isNull(qq)){
+                user.setQqNumber(qq);
+            }
+            result.setCode(result.SUCCESS);
+            result.setObject(this.userServer.register(user));
+        }catch (Exception e){
+            result.setCode(result.FAILURE);
+        }
+        super.responseMessage(response,result.toJsonString());
     }
-
 
     private void checkUser() {
         if (user == null) {
