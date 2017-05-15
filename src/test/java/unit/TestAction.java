@@ -10,7 +10,7 @@ import static org.springframework.test.web.servlet.setup.MockMvcBuilders.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 /**
- * Created by Jeor on 2016/3/7.
+ * Created by Jeor on 2016/3/7.  修改测试删除分支。
  */
 public class TestAction {
     @Autowired
