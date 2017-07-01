@@ -46,6 +46,8 @@
         <version.servlet>3.1.0</version.servlet>
         <version.servlet.jsp>2.3.2-b01</version.servlet.jsp>
         <version.servlet.jstl>1.1.2</version.servlet.jstl>
+        <version.jedis>2.7.0</version.jedis>
+        <version.spring-data-redis>1.5.2.RELEASE</version.spring-data-redis>
     </properties>
     <build>
         <plugins>
@@ -243,7 +245,16 @@
             <version>2.4</version>
             <classifier>jdk13</classifier>
         </dependency>
-
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>${version.jedis}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.data</groupId>
+            <artifactId>spring-data-redis</artifactId>
+            <version>${version.spring-data-redis}</version>
+        </dependency>
 
     </dependencies>
 

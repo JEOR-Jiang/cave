@@ -18,6 +18,8 @@
     <bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter"></bean>
     <bean class="org.springframework.web.servlet.mvc.annotation.DefaultAnnotationHandlerMapping"></bean>
 
+    <!--缓存相关redis配置-->
+    <import resource="classpath:spring-cache-redis.xml"/>
 
     <import resource="classpath:dataSource.xml"></import>
     <!--已经在web.xml里面配置勒路径<import resource="classpath:springMVC.xml"></import>-->
