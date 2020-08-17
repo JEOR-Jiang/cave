@@ -2,7 +2,6 @@ package com.jeor.cave;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import sun.tools.jconsole.JConsole;
 
 @SpringBootApplication
 public class CaveApplication {

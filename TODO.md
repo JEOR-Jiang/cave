@@ -1,6 +1,9 @@
 18技-1.0
 爬虫：爬取网站数据，下载网站上图片视频
 web脚手架：shiro权限，swagger文档，validate验证，transaction事务，quartz定时任务，MQ，数据存储（redis，mysql，mongo），email，Activiti流程引擎
+18技-1.0
+爬虫：爬取网站数据，下载网站上图片视频
+web脚手架：shiro权限，swagger文档，validate验证，transaction事务，quartz定时任务，MQ，数据存储（redis，mysql，mongo），email，Activiti流程引擎
 第三方接口：微信
 
 
