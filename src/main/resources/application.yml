@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: cave application
+  profiles:
+    active: dev
+swagger:
+  enable: true
+ddd: dst
