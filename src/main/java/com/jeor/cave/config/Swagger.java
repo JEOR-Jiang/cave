@@ -30,7 +30,7 @@ import java.util.List;
 @ConditionalOnProperty(prefix = "swagger", name = "enable", havingValue = "true")
 public class Swagger implements WebMvcConfigurer {
 
-    @Value("${swagger.enable}")   //todo 加载不到配置
+    @Value("${swagger.enable}")
     private String enable;
 
     @Bean
