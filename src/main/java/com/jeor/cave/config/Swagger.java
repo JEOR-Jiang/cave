@@ -27,10 +27,10 @@ import java.util.List;
 @Configuration
 @EnableSwagger2
 @EnableSwaggerBootstrapUI
-//@ConditionalOnProperty(prefix = "swagger", name = "enable", havingValue = "true")
+@ConditionalOnProperty(prefix = "swagger", name = "enable", havingValue = "true")
 public class Swagger implements WebMvcConfigurer {
 
-    //@Value("${swagger.enable}")   //todo 加载不到配置
+    @Value("${swagger.enable}")   //todo 加载不到配置
     private String enable;
 
     @Bean

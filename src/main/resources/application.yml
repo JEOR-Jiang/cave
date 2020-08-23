@@ -3,6 +3,7 @@ spring:
     name: cave application
   profiles:
     active: dev
+    include: quartz
 swagger:
   enable: true
 ddd: dst

@@ -1,6 +1,6 @@
 package hello;
 
-import org.junit.Test;
+//import org.junit.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import us.codecraft.webmagic.Spider;
 import us.codecraft.webmagic.pipeline.ConsolePipeline;
@@ -14,7 +14,7 @@ import com.jeor.webmagic.HelloWebMagic;
 @SpringBootTest
 public class TestCrawler {
 
-    @Test
+    //@Test
     public void run(){
         System.out.println("start crawler.");
     }
