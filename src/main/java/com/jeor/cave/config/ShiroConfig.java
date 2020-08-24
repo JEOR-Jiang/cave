@@ -37,7 +37,15 @@ public class ShiroConfig {
         bean.setUnauthorizedUrl("/unauthorizedurl");
 
         Map<String, String> map = new LinkedHashMap<>();
-        map.put("/doLogin", "anon");
+        map.put("/doLogin", "anon");;
+        map.put("/swagger/**", "anon");
+        map.put("/swagger-ui.html", "anon");
+        map.put("/swagger-resources/**", "anon");
+        map.put("/doc.html","anon");
+
+
+        map.put("/v2/api-docs", "anon");
+
         map.put("/**", "authc");
         bean.setFilterChainDefinitionMap(map);
         return bean;

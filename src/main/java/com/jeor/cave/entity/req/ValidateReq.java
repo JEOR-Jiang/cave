@@ -1,4 +1,4 @@
-package com.jeor.cave.entity;
+package com.jeor.cave.entity.req;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;

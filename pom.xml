@@ -24,6 +24,9 @@
 		<swagger.version>2.7.0</swagger.version>
 		<bootstrap-ui.version>1.8.5</bootstrap-ui.version>
 		<hibernate-validator.version>6.0.13.Final</hibernate-validator.version>
+		<mysql.version>8.0.15</mysql.version>
+		<mybatisplus.version>3.3.1</mybatisplus.version>
+		<druid.version>1.1.13</druid.version>
 		<shiro.version>1.4.0</shiro.version>
 	</properties>
 
@@ -38,6 +41,11 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<version>${lombok.version}</version>
+		</dependency>
+		<!--	mail	-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
 		</dependency>
 
 		<!--	swagger	-->
@@ -57,6 +65,40 @@
 			<version>${bootstrap-ui.version}</version>
 		</dependency>
 
+		<!--	redis	-->
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.68</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-redis</artifactId>
+		</dependency>
+
+		<!--	database	-->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>${mysql.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.baomidou</groupId>
+			<artifactId>mybatis-plus-boot-starter</artifactId>
+			<version>${mybatisplus.version}</version>
+			<exclusions>
+				<exclusion>
+					<groupId>com.baomidou</groupId>
+					<artifactId>mybatis-plus-generator</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>druid-spring-boot-starter</artifactId>
+			<version>${druid.version}</version>
+		</dependency>
+
 		<!--	shiro	-->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
@@ -69,6 +111,11 @@
 			<version>${shiro.version}</version>
 		</dependency>
 
+		<!--	quartz	-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-quartz</artifactId>
+		</dependency>
 
 		<!--	test	-->
 		<dependency>

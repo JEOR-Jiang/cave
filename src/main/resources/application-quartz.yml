@@ -1,2 +1,12 @@
-swagger:
-  enable: true
+quartz:
+  SchedulerName: caveScheduler
+  jobs:
+    - jobName: demoTask
+      cronExpression: /5 * 3 * * ? *
+      methodName: doTask
+      jobStatus: 1
+      jobClass: demoTask
+      isConcurrent: false
+      delay: 30
+      maxTimes: 5
+
