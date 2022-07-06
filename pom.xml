@@ -130,8 +130,12 @@
 			</exclusions>
 		</dependency>
 
-
-
+		<!--	groovy	-->
+		<dependency>
+			<groupId>org.codehaus.groovy</groupId>
+			<artifactId>groovy-all</artifactId>
+			<version>3.0.7</version>
+		</dependency>
 
 	</dependencies>
 
