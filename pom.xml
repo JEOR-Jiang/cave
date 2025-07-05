@@ -2,7 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<packaging>jar</packaging>
+	<!--<packaging>jar</packaging>-->
+	<packaging>pom</packaging>
 	<!--<modules>
 		<module>crawler</module>
 	</modules>-->
@@ -28,6 +29,7 @@
 		<mybatisplus.version>3.3.1</mybatisplus.version>
 		<druid.version>1.1.13</druid.version>
 		<shiro.version>1.4.0</shiro.version>
+		<hutool.version>5.8.11</hutool.version>
 	</properties>
 
 	<dependencies>
@@ -131,10 +133,17 @@
 		</dependency>
 
 		<!--	groovy	-->
-		<dependency>
+		<!--<dependency>
 			<groupId>org.codehaus.groovy</groupId>
 			<artifactId>groovy-all</artifactId>
 			<version>3.0.7</version>
+		</dependency>-->
+
+		<!--	hutool	-->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>${hutool.version}</version>
 		</dependency>
 
 	</dependencies>
